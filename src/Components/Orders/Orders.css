@@ -1,0 +1,17 @@
+.order-card {
+    margin: 50px auto;
+}
+
+.empty {
+    text-align: center;
+    margin: auto;
+}
+
+.empty a {
+    text-decoration: none;
+    color: blue;
+}
+
+.empty a:hover {
+    color: #1616ba;
+}

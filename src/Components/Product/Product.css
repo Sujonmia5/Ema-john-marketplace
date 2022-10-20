@@ -1,0 +1,44 @@
+.card {
+    width: 280px;
+    height: 400px;
+    border: 1px solid tan;
+    margin: 10px;
+    position: relative;
+    background-color: white;
+    box-shadow: 8px 8px 8px #ab8080;
+    border-radius: 10px;
+}
+
+.card img {
+    width: 280px;
+    height: 250px;
+    border-radius: 10px;
+}
+
+.card-body {
+    position: absolute;
+    bottom: 10px;
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+.card-body button {
+    background-color: #2020cc;
+    color: white;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    width: 250px;
+}
+
+.card-body button:hover {
+    background-color: #f4cbcb;
+    color: black;
+    transition: all 1s ease;
+}
+
+.card-body h4 {
+    margin-bottom: 0%;
+}

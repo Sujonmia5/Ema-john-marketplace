@@ -1,0 +1,67 @@
+.navbar{
+    background-color: #1C2B35;
+    height: 70px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 140px;
+    padding-right: 140px;
+    z-index: 50;
+}
+#side-bar{
+    display: none;
+}
+.navbar img{
+    height: 50px;
+}
+
+.icon{
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    display: none;
+}
+.nav a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 20px;
+}
+.nav a:hover{
+    color: tomato;
+}
+@media screen and (max-width: 992px) {
+    .navbar{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    #side-bar:checked ~ .icon::before{
+        content: "\f410";
+    }
+    .nav{
+         position: fixed;
+         top: 80px;
+         left: -100%;
+         background-color: #1C2B35;
+         height: 50vh;
+         width: 100%;
+         text-align: center;
+         transition: all 0.4s ease;
+         z-index: 1;
+    }
+    
+    .nav a{
+        display: block;
+        margin: 20px 0;
+    }
+    .icon{
+        display: block;
+    }
+    
+}
+#side-bar:checked ~ .nav{
+    left: 0%;
+}
