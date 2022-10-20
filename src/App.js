@@ -9,6 +9,8 @@ import Home from './Components/Home/Home';
 import { dataLoader } from './Loader/Loader';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
+import Shipping from './Components/Shipping/Shipping';
+import PrivateRoute from './routes/PrivateRoute';
 
 function App() {
   const router = createBrowserRouter([
@@ -18,23 +20,25 @@ function App() {
         {
           path: '/',
           loader: dataLoader,
-          element: <Shop />
+          element: <Home />
         },
         {
-          path: '/home', element: <Home />
+          path: '/home',
+          loader: dataLoader,
+          element: <Home />
         },
         {
           path: '/shop',
           loader: dataLoader,
-          element: <Shop />
+          element: <PrivateRoute><Shop /></PrivateRoute>
         },
         {
           path: '/orders',
           loader: dataLoader,
-          element: <Orders />
+          element: <PrivateRoute><Orders /></PrivateRoute>
         },
         {
-          path: '/inventory', element: <Inventory />
+          path: '/inventory', element: <PrivateRoute><Inventory /></PrivateRoute>
         },
         {
           path: '/about', element: <About />
@@ -44,6 +48,9 @@ function App() {
         },
         {
           path: '/register', element: <Register />
+        },
+        {
+          path: '/shipping', element: <PrivateRoute><Shipping /></PrivateRoute>
         }
 
       ]

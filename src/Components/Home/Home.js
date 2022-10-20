@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../Context/UserContext';
+import HomeHeader from '../homeDegisn/HomeHeader';
+import './Home.css'
 
 
 const Home = () => {
-    const { user } = useContext(AuthContext)
     return (
-        <div>
-            <h1>This is Home components</h1>
+        <div className='headers'>
+            <HomeHeader />
         </div>
     );
 };

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product'
-import { AddToDb, getStore } from '../utilities/AddedStorage';
+import { AddToDb, clearStorage, getStore } from '../utilities/AddedStorage';
 
 import './Shop.css'
 
@@ -42,6 +42,9 @@ const Shop = () => {
         setCart(newCart)
         AddToDb(product.id)
     }
+    const clearCart = () => {
+        clearStorage()
+    }
 
     return (
         <div className='Shop'>
@@ -56,7 +59,11 @@ const Shop = () => {
             </div>
             <div className='cart'>
                 <h1>Order Summary</h1>
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart} clearCart={clearCart}>
+                    <Link to='/orders'>
+                        <button className='btn'>Review Orders</button>
+                    </Link>
+                </Cart>
             </div>
         </div>
     );

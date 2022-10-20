@@ -1,0 +1,23 @@
+.relative {
+    display: flex;
+    background-image: url('https://images.pexels.com/photos/3747463/pexels-photo-3747463.jpeg?');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+
+}
+
+.textHeader {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.textHeader p {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loginHeader {
+    margin: 0;
+}

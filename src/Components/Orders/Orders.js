@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import OrdersDetails from '../OrdersDetails/OrdersDetails'
-import { removeItem } from '../utilities/AddedStorage';
+import { clearStorage, removeItem } from '../utilities/AddedStorage';
 import './Orders.css'
 
 const Orders = () => {
@@ -15,6 +15,10 @@ const Orders = () => {
         const remeningProduct = cart.filter(product => product.id !== id)
         setCart(remeningProduct)
         removeItem(id)
+
+    }
+    const clearCart = () => {
+        clearStorage()
     }
     return (
         <div className='Shop'>
@@ -27,7 +31,11 @@ const Orders = () => {
                 }
             </div>
             <div className='cart'>
-                <Cart cart={cart} />
+                <Cart cart={cart} clearCart={clearCart} >
+                    <Link to='/shipping'>
+                        <button className='btn'>Shipping</button>
+                    </Link>
+                </Cart>
             </div>
         </div>
     );

@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../Context/UserContext';
 import './Register.css'
 
 const Register = () => {
+    const [signupError, setSignupError] = useState('')
     const [error, setError] = useState('')
     const [match, setMatch] = useState('')
     const [password, setPassword] = useState('')
+    const { createAccount } = useContext(AuthContext)
+    const Navigate = useNavigate()
 
     const passwordSet = e => {
         if (!/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z]).{6,}$/.test(e.target.value)) {
@@ -30,10 +35,24 @@ const Register = () => {
         const form = e.target
         const name = form.name.value;
         const email = form.email.value;
-        console.log(name, email, password);
+        // console.log(name, email, password);
+        createAccount(email, password)
+            .then(result => {
+                const user = result.user;
+                Swal.fire('Account create successful', '', "success")
+                form.reset()
+                Navigate('/login')
+            })
+            .catch(error => {
+                Swal.fire('This email already use', '', "warning")
+                console.error(error);
+            })
     }
     return (
         <div className='login'>
+            {
+                error?.message ? <p>{signupError.message}</p> : ""
+            }
             <form onSubmit={submitHandle}>
                 <h2>Create an new Account</h2>
                 <label htmlFor="name">
